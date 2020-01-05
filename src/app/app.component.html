@@ -1,5 +1,13 @@
-<!-- <button mat-raised-button color="accent">
-  <mat-icon>home</mat-icon>
-</button> -->
+<mat-sidenav-container class="example-container">
+  <mat-sidenav
+    #sideNav 
+    mode="side" 
+    opened="true">
+    Sidenav content
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <button (click)="sideNav.toggle()">SideNav</button>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
 
-<router-outlet></router-outlet>
