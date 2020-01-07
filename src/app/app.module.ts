@@ -1,37 +1,41 @@
-import { MaterialModule } from './material.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AuthModule } from './auth/auth.module';
+import { FormsModule } from '@angular/forms';
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SignupComponent } from './auth/signup/signup.component';
-import { LoginComponent } from './auth/login/login.component';
-import { CurrentTrainingComponent } from './training/current-training/current-training.component';
-import { NewTrainingComponent } from './training/new-training/new-training.component';
-import { PastTrainingComponent } from './training/past-training/past-training.component';
-import { WelcomeComponent } from './welcome/welcome.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HomeComponent } from './layout/home/home.component';
+import { HeaderComponent } from './layout/header/header.component';
+import { SidenavComponent } from './layout/sidenav/sidenav.component';
+import { MaterialModule } from './material/material.module';
+import { PageNotFoundComponent } from './layout/error/page-not-found/page-not-found.component';
+import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
+    HeaderComponent,
+    SidenavComponent,
+    HomeComponent,
     AppComponent,
-    SignupComponent,
-    LoginComponent,
-    CurrentTrainingComponent,
-    NewTrainingComponent,
-    PastTrainingComponent,
-    WelcomeComponent
+    PageNotFoundComponent
   ],
   imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    MaterialModule,
-    AppRoutingModule, 
     FormsModule,
-    ReactiveFormsModule
+    AuthModule,
+    BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    MaterialModule,
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+    { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 2000 } }
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
