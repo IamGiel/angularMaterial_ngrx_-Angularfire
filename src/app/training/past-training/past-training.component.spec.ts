@@ -8,8 +8,9 @@ describe('PastTrainingComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [PastTrainingComponent]
-    }).compileComponents();
+      declarations: [ PastTrainingComponent ]
+    })
+    .compileComponents();
   }));
 
   beforeEach(() => {

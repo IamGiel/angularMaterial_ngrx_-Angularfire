@@ -1,27 +1,12 @@
-import { Component } from '@angular/core';
 import { TestBed, async } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from './material/material.module';
-import { HttpClientModule } from '@angular/common/http';
-
-@Component({ selector: 'app-header', template: '' })
-class HeaderStubComponent {}
-
-@Component({ selector: 'app-sidenav', template: '' })
-class SidenavStubComponent {}
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule,
-        NoopAnimationsModule,
-        MaterialModule,
-        HttpClientModule
+      declarations: [
+        AppComponent
       ],
-      declarations: [AppComponent, HeaderStubComponent, SidenavStubComponent]
     }).compileComponents();
   }));
 
@@ -29,5 +14,18 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
+  });
+
+  it(`should have as title 'fitness-tracker'`, () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.debugElement.componentInstance;
+    expect(app.title).toEqual('fitness-tracker');
+  });
+
+  it('should render title', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('.content span').textContent).toContain('fitness-tracker app is running!');
   });
 });

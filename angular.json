@@ -19,8 +19,14 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": false,
-            "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/app/custom-theme.scss", "src/styles.scss"],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/app/custom-theme.css",
+              "src/styles.css"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -58,8 +64,7 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "fitness-tracker:build",
-            "proxyConfig": "proxy.conf.js"
+            "browserTarget": "fitness-tracker:build"
           },
           "configurations": {
             "production": {
@@ -80,10 +85,13 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "assets": ["src/favicon.ico", "src/assets"],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
-              "src/styles.scss"
+              "src/styles.css"
             ],
             "scripts": []
           }
@@ -96,7 +104,9 @@
               "tsconfig.spec.json",
               "e2e/tsconfig.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         },
         "e2e": {
@@ -114,10 +124,5 @@
       }
     }
   },
-  "defaultProject": "fitness-tracker",
-  "schematics": {
-    "@schematics/angular:component": {
-      "styleext": "scss"
-    }
-  }
+  "defaultProject": "fitness-tracker"
 }
