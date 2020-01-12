@@ -1,1 +1,33 @@
-<p>welcome works!</p>
+<mat-toolbar color="primary">
+  <span class="example-fill-remaining-space"></span>
+
+  <!-- This fills the remaining space of the current row -->
+  <span >Track Your Court</span>
+
+  <span class="example-fill-remaining-space"></span>
+</mat-toolbar>
+
+<div fxLayout="column" fxLayoutAlign="center center" style="margin: 12px; padding: 12px;">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <!-- <div mat-card-avatar class="example-header-image"></div> -->
+        <mat-card-title>So Whats this all about?</mat-card-title>
+        <mat-card-subtitle>Its for the avid Tennis Players</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_ZeTOMyUrpMo97L1Km3G-MLxGWPv8wr5wNvcYG4HGTngjFdqT&s"
+        alt="Photo of a Shiba Inu">
+      <mat-card-content>
+        <p>
+          Basically, we keep track if the courts are free.  This way, you know its good to go to the courts.  Why waste time?
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button (click)="goToHowItWorks()">How it Works...</button>
+        <button mat-raised-button (click)="goToDashBoard()">Go</button>
+      </mat-card-actions>
+    </mat-card>
+</div>
+
+
+

@@ -1,0 +1,19 @@
+.cardStyle {
+ -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3),
+ 0 0 40px rgba(0, 0, 0, 0.1) inset;
+ -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3),
+ 0 0 40px rgba(0, 0, 0, 0.1) inset;
+ box-shadow:0 1px 4px rgba(0, 0, 0, 0.3),
+ 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+
+.mat-card-image {
+  /* height: 120px;
+  width: 50%;
+  padding: 0 0px 0px 20%; */
+}
+
+.sec1 {
+  padding: 20px 5px 0px 5px;
+  text-align: center;
+}

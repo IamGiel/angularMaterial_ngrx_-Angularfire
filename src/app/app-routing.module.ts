@@ -7,16 +7,19 @@ import { LoginComponent } from './auth/login/login.component';
 import { NewTrainingComponent } from './training/new-training/new-training.component';
 import { PastTrainingComponent } from './training/past-training/past-training.component';
 import { CurrentTrainingComponent } from './training/current-training/current-training.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { HowItWorksComponent } from './welcome/how-it-works/how-it-works.component';
 
 const routes: Routes = [
-    {path: '', component: WelcomeComponent },
-    {path: 'signup', component: SignupComponent },
-    {path: 'login', component: LoginComponent },
-    {path: 'training/new', component: NewTrainingComponent },
-    { path: 'training/past', component: PastTrainingComponent },
-    { path: 'training/current', component: CurrentTrainingComponent },
-
-]
+  { path: "", component: WelcomeComponent },
+  { path: "signup", component: SignupComponent },
+  { path: "login", component: LoginComponent },
+  { path: "training/new", component: NewTrainingComponent },
+  { path: "training/past", component: PastTrainingComponent },
+  { path: "training/current", component: CurrentTrainingComponent },
+  { path: "dashboard", component: DashboardComponent },
+  { path: "how-it-works", component: HowItWorksComponent }
+];
 
 @NgModule({
     imports: [

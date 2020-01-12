@@ -12,6 +12,9 @@ import { NewTrainingComponent } from './training/new-training/new-training.compo
 import { PastTrainingComponent } from './training/past-training/past-training.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { FlexLayoutModule } from "@angular/flex-layout";
+import { HowItWorksComponent } from './welcome/how-it-works/how-it-works.component';
 
 @NgModule({
   declarations: [
@@ -21,9 +24,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CurrentTrainingComponent,
     NewTrainingComponent,
     PastTrainingComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    DashboardComponent,
+    HowItWorksComponent
   ],
   imports: [
+    FlexLayoutModule,
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,

@@ -1,0 +1,39 @@
+.example-fill-remaining-space {
+  /* This fills the remaining space, by using flexbox. 
+     Every toolbar row uses a flexbox row layout. */
+  flex: 1 1 auto;
+}
+
+  .sec1,
+  .sec2,
+  .sec3 {
+    padding-top: 20px;
+    text-align: center;
+    border: 1px solid;
+  }
+
+  /* .example-card {
+    width: 400px;
+  } */
+
+  mat-card {
+      width: 90%;
+  }
+  .mat-card-image {
+    width: 100%;
+    height: 19em;
+    margin-bottom: 12px;
+  }
+
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+
+
+@media screen and (max-width: 600px) {
+  .container {
+    background: red;
+    flex: 1 1 auto;
+  }
+}
