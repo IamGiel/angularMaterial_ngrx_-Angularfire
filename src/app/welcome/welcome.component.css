@@ -19,10 +19,25 @@
   mat-card {
       width: 90%;
   }
+
+  .mat-card-header {
+    display: flex;
+    flex-direction: row;
+    /* text-align: center; */
+    margin: 0 30% 0 30%;
+  }
   .mat-card-image {
-    width: 100%;
+    width: 40%;
     height: 19em;
-    margin-bottom: 12px;
+    margin: 12px 30% 0px 30%;
+  }
+  .mat-card-content,
+  .mat-card-actions,
+  .mat-card-header-text {
+      display: block;
+      margin-bottom: 16px;
+      margin-top: 20px;
+      text-align: center;
   }
 
   .example-header-image {
