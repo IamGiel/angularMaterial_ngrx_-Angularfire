@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, OnDestroy } from "@angular/core";
 import { CourtLists } from "../dumm-data/courts";
 import { Router } from "@angular/router";
 import { AngularFirestore } from "@angular/fire/firestore";
@@ -15,7 +15,7 @@ import { FetchDataService } from "../service/fetch-data-service.service";
   templateUrl: "./dashboard.component.html",
   styleUrls: ["./dashboard.component.css"]
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit, OnDestroy {
   courtLists = CourtLists;
   courts: Courts [];
   courtListsSubscription: Subscription;
@@ -29,15 +29,19 @@ export class DashboardComponent implements OnInit {
     this.courtListsSubscription = this.fetchDataService.courtListsChanged.subscribe(
       courtlists => (this.courts = courtlists)
     );
+    console.log(this.courtListsSubscription)
     this.fetchCourtLists();
   }
 
   fetchCourtLists() {
     this.fetchDataService.fetchAllCourtLists();
-    console.log(this.courts);
   }
 
   goHome() {
     this.router.navigateByUrl("/");
+  }
+
+  ngOnDestroy(){
+    this.courtListsSubscription.unsubscribe()
   }
 }

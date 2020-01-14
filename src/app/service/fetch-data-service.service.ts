@@ -29,8 +29,8 @@ export class FetchDataService {
         });
       })
       .subscribe((cl: Courts[]) => {
+        console.log(cl);
         this.availableCourts = cl;
-        console.log(this.availableCourts);
         this.courtListsChanged.next([...this.availableCourts]);
       });
   }
