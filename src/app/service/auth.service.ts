@@ -40,9 +40,11 @@ export class AuthService {
       .createUserWithEmailAndPassword(authData.email, authData.password)
       .then(result => {
         console.log(result)
+        this.isAuthenticated = true;
         this.router.navigateByUrl('/dashboard')
       })
       .catch(error => {
+        this.isAuthenticated = false;
         console.log(error);
       });
   }
@@ -52,7 +54,7 @@ export class AuthService {
       .signInWithEmailAndPassword(authData.email, authData.password)
       .then(result => {
         console.log(result);
-        this.router.navigateByUrl('/dashboard')
+        this.router.navigateByUrl('/')
       })
       .catch(error => {
         console.log(error);

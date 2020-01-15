@@ -13,6 +13,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit(){
     console.log("test")
-    this.authService.initAuthListener();
+    
   }
 }

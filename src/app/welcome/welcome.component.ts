@@ -22,6 +22,7 @@ export class WelcomeComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.authService.initAuthListener();
     this.authSubscription = this.authService.authChange.subscribe(authStatus => {
       this.isAuth = authStatus;
     });
@@ -47,7 +48,7 @@ export class WelcomeComponent implements OnInit {
       return (this.toggleHeight = "100%");
     }
   }
-  
+
   onLogout() {
     this.authService.logout();
   }
