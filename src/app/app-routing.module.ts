@@ -9,15 +9,13 @@ import { PastTrainingComponent } from './training/past-training/past-training.co
 import { CurrentTrainingComponent } from './training/current-training/current-training.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HowItWorksComponent } from './welcome/how-it-works/how-it-works.component';
+import { AuthGuard } from './service/auth.guard';
 
 const routes: Routes = [
   { path: "", component: WelcomeComponent },
   { path: "signup", component: SignupComponent },
   { path: "login", component: LoginComponent },
-  { path: "training/new", component: NewTrainingComponent },
-  { path: "training/past", component: PastTrainingComponent },
-  { path: "training/current", component: CurrentTrainingComponent },
-  { path: "dashboard", component: DashboardComponent },
+  { path: "dashboard", component: DashboardComponent, canActivate: [AuthGuard] },
   { path: "how-it-works", component: HowItWorksComponent }
 ];
 
@@ -29,6 +27,6 @@ const routes: Routes = [
         RouterModule
     ],
     declarations: [],
-    providers: []
+    providers: [AuthGuard]
 })
 export class AppRoutingModule {}

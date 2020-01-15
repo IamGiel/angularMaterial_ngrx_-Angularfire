@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { AuthService } from '../service/auth.service';
 
 @Component({
   selector: "app-welcome",
@@ -11,12 +13,18 @@ export class WelcomeComponent implements OnInit {
   toggleColor: string;
   toggleHeight: any;
   windowWidth: number;
+  isAuth = false;
+  authSubscription: Subscription;
 
   constructor(
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) {}
 
   ngOnInit() {
+    this.authSubscription = this.authService.authChange.subscribe(authStatus => {
+      this.isAuth = authStatus;
+    });
     this.breakpoint = window.innerWidth < 959 ? 1 : 3;
     this.getWindowWidth();
   }
@@ -38,5 +46,13 @@ export class WelcomeComponent implements OnInit {
     } else {
       return (this.toggleHeight = "100%");
     }
+  }
+  
+  onLogout() {
+    this.authService.logout();
+  }
+
+  ngOnDestroy() {
+    this.authSubscription.unsubscribe();
   }
 }

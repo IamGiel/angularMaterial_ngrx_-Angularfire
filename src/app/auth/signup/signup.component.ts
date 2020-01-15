@@ -14,6 +14,8 @@ import {
 import {
   ErrorStateMatcher
 } from '@angular/material';
+import { AuthService } from 'src/app/service/auth.service';
+import { AuthData } from 'src/app/models/auth-data.model';
 
 @Component({
   selector: 'app-signup',
@@ -30,10 +32,11 @@ export class SignupComponent implements OnInit {
   retypedPw;
   notSamePassword: boolean;
   signupForm:any;
+  credentials:AuthData;
 
   createForm(){
     this.signupForm = this.fb.group({
-      email: [null, [Validators.required, Validators.pattern('[a-zA-Z0-9.-]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{3,}')]],
+      email: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9.-]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{3,}')]],
       password: ['', [Validators.required, Validators.minLength(6)]],
       vrfy_password: ['', Validators.required],
       date: ['', Validators.required],
@@ -48,7 +51,7 @@ export class SignupComponent implements OnInit {
     return pass === confirmPass ? null : { notSame: true }
   }
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private authService: AuthService) {
     this.createForm();
   }
 
@@ -85,6 +88,11 @@ export class SignupComponent implements OnInit {
 
   onSubmit() {
     console.log(this.signupForm.valid);
+    this.authService.registerUser({
+      userName:this.signupForm.value.userName,
+      email: this.signupForm.value.email,
+      password: this.signupForm.value.password
+    })
   }
 
   

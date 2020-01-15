@@ -19,6 +19,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { HowItWorksComponent } from './welcome/how-it-works/how-it-works.component';
+import { AngularFireAuthModule } from "@angular/fire/auth";
 
 import { environment } from '../environments/environment'
 
@@ -43,7 +44,8 @@ import { environment } from '../environments/environment'
     FormsModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    AngularFireAuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]

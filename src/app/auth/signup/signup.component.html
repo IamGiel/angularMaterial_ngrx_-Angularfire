@@ -1,10 +1,15 @@
-<div class="container" style="margin-top: 20%;">
+<div class="container" style="margin-top: 20px;">
 
-  <mat-grid-list cols="3" rowHeight="2:1">
-    <mat-grid-tile></mat-grid-tile>
 
-    <mat-grid-tile>
-      <form class="example-form" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+      <form fxLayout="column" fxLayoutAlign="center center" class="example-form" [formGroup]="signupForm"
+        (ngSubmit)="onSubmit()" style="min-width: 500px;">
+
+        <div class="form-group">
+          <mat-form-field appearance="fill" class="example-full-width">
+            <input matInput type="text" placeholder="Your username" formControlName="username" required>
+            <mat-error *ngIf="signupForm.controls['username'].hasError('required')">username is required</mat-error>
+          </mat-form-field>
+        </div>
 
         <div class="form-group">
           <mat-form-field appearance="fill" class="example-full-width">
@@ -78,10 +83,6 @@
         <!-- Submit button -->
         <button mat-raised-button [disabled]="!signupForm.valid">Submit</button>
       </form>
-    </mat-grid-tile>
-
-    <mat-grid-tile></mat-grid-tile>
-  </mat-grid-list>
 
 
 

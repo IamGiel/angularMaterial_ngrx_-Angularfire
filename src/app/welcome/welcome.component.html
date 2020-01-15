@@ -5,6 +5,8 @@
   <span >Track Your Court</span>
 
   <span class="example-fill-remaining-space"></span>
+
+  
 </mat-toolbar>
 
 <div fxLayout="column" fxLayoutAlign="center center" style="margin: 12px; padding: 12px;">
@@ -24,7 +26,8 @@
       </mat-card-content>
       <mat-card-actions>
         <button mat-raised-button (click)="goToHowItWorks()">How it Works...</button>
-        <button mat-raised-button (click)="goToDashBoard()">Go</button>
+        <button *ngIf="!isAuth" mat-raised-button (click)="goToDashBoard()">Go</button>
+        <button *ngIf="isAuth" mat-raised-button (click)="goToDashBoard()">Login</button>
       </mat-card-actions>
     </mat-card>
 </div>

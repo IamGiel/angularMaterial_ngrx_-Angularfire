@@ -34,4 +34,12 @@ export class FetchDataService {
         this.courtListsChanged.next([...this.availableCourts]);
       });
   }
+
+  removeACourt(){
+    
+  }
+
+  private addCourt(){
+
+  }
 }
