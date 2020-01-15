@@ -24,6 +24,7 @@ export class WelcomeComponent implements OnInit {
   ngOnInit() {
     this.authService.initAuthListener();
     this.authSubscription = this.authService.authChange.subscribe(authStatus => {
+      console.log(authStatus)
       this.isAuth = authStatus;
     });
     this.breakpoint = window.innerWidth < 959 ? 1 : 3;
@@ -51,6 +52,9 @@ export class WelcomeComponent implements OnInit {
 
   onLogout() {
     this.authService.logout();
+  }
+  goLogin(){
+    this.router.navigateByUrl('/login');
   }
 
   ngOnDestroy() {

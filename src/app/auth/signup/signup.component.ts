@@ -16,6 +16,7 @@ import {
 } from '@angular/material';
 import { AuthService } from 'src/app/service/auth.service';
 import { AuthData } from 'src/app/models/auth-data.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -52,7 +53,7 @@ export class SignupComponent implements OnInit {
     return pass === confirmPass ? null : { notSame: true }
   }
 
-  constructor(private fb: FormBuilder, private authService: AuthService) {
+  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
     this.createForm();
   }
 
@@ -94,6 +95,10 @@ export class SignupComponent implements OnInit {
       email: this.signupForm.value.email,
       password: this.signupForm.value.password
     })
+  }
+
+  goHome(){
+    this.router.navigateByUrl('/')
   }
 
   

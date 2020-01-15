@@ -26,8 +26,8 @@
       </mat-card-content>
       <mat-card-actions>
         <button mat-raised-button (click)="goToHowItWorks()">How it Works...</button>
-        <button *ngIf="!isAuth" mat-raised-button (click)="goToDashBoard()">Go</button>
-        <button *ngIf="isAuth" mat-raised-button (click)="goToDashBoard()">Login</button>
+        <button *ngIf="isAuth" mat-raised-button (click)="goToDashBoard()">Go</button>
+        <button *ngIf="!isAuth" mat-raised-button (click)="goLogin()">Login</button>
       </mat-card-actions>
     </mat-card>
 </div>
