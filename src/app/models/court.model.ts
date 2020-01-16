@@ -3,4 +3,7 @@ export interface Courts {
   name: string;
   numCourts: number;
   address: number;
+  details : {
+    
+  }
 }

@@ -24,7 +24,7 @@ export class WelcomeComponent implements OnInit {
   ngOnInit() {
     this.authService.initAuthListener();
     this.authSubscription = this.authService.authChange.subscribe(authStatus => {
-      console.log(authStatus)
+      // console.log(authStatus)
       this.isAuth = authStatus;
     });
     this.breakpoint = window.innerWidth < 959 ? 1 : 3;
@@ -35,11 +35,12 @@ export class WelcomeComponent implements OnInit {
     this.getWindowWidth();
   }
   goToHowItWorks(){
-    console.log("how it works route clicked")
+    // console.log("how it works route clicked")
     this.router.navigateByUrl("/how-it-works");
   }
   goToDashBoard(){
-    this.router.navigateByUrl('/dashboard');
+    // console.log('goto dash')
+    this.router.navigate(['/dashboard']);
   }
   getWindowWidth() {
     this.windowWidth = window.innerWidth;

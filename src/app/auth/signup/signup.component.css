@@ -1,9 +1,24 @@
-/* .example-form {
-  min-width: 150px;
-  max-width: 500px;
+.example-form {
+  flex-direction: column;
+  box-sizing: border-box;
+  display: flex;
+  place-content: stretch center;
+  align-items: stretch;
+  margin-left: 29%;
   width: 100%;
+  font-size: 12px;
+}
+
+.mat-divider {
+  border-top-color: rgba(0, 0, 0, .12);
+  width: 50%;
 }
 
 .example-full-width {
-  width: 100%;
-} */
+  width: 50%;
+  height: 49px;
+}
+
+button {
+  margin: 0 5px 0 5px;
+}

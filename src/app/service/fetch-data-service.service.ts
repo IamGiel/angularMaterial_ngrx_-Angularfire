@@ -24,7 +24,8 @@ export class FetchDataService {
             name: doc.payload.doc.data()["name"],
             thumb: doc.payload.doc.data()["thumb"],
             numCourts: doc.payload.doc.data()["numCourts"],
-            address: doc.payload.doc.data()["address"]
+            address: doc.payload.doc.data()["address"],
+            details: doc.payload.doc.data()["details"],
           };
         });
       })
@@ -32,14 +33,12 @@ export class FetchDataService {
         console.log(cl);
         this.availableCourts = cl;
         this.courtListsChanged.next([...this.availableCourts]);
-      });
-  }
-
-  removeACourt(){
-    
-  }
-
-  private addCourt(){
-
+        return cl;  
+      },
+      error=> {
+        // console.log(error);
+      }
+      
+      );
   }
 }

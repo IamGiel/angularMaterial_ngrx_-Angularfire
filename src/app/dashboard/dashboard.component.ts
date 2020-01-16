@@ -34,7 +34,10 @@ export class DashboardComponent implements OnInit, OnDestroy {
       this.isAuth = authStatus;
     });
     this.courtListsSubscription = this.fetchDataService.courtListsChanged.subscribe(
-      courtlists => (this.courts = courtlists)
+      courtlists => {
+        this.courts = courtlists
+        console.log(this.courts)
+      }
     );
     this.fetchCourtLists();
   }
@@ -42,6 +45,10 @@ export class DashboardComponent implements OnInit, OnDestroy {
   fetchCourtLists() {
     this.fetchDataService.fetchAllCourtLists();
   }
+  // goToDetailView(){
+  //   console.log(JSON.stringify(this.courts));
+  //   this.router.navigateByUrl(`/table-view/${this.courts}`);
+  // }
 
   goHome() {
     this.router.navigateByUrl("/");

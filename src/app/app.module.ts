@@ -2,7 +2,8 @@ import { MaterialModule } from './material.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule, CourtDataResolver } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 
 // firebase module imports
 import { AngularFireModule } from "@angular/fire";
@@ -21,7 +22,9 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 import { HowItWorksComponent } from './welcome/how-it-works/how-it-works.component';
 import { AngularFireAuthModule } from "@angular/fire/auth";
 
-import { environment } from '../environments/environment'
+import { environment } from '../environments/environment';
+import { TableViewComponent } from './dashboard/table-view/table-view.component'
+// import { CourtResolverService } from './service/court-resolver.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,8 @@ import { environment } from '../environments/environment'
     PastTrainingComponent,
     WelcomeComponent,
     DashboardComponent,
-    HowItWorksComponent
+    HowItWorksComponent,
+    TableViewComponent
   ],
   imports: [
     FlexLayoutModule,
@@ -45,9 +49,10 @@ import { environment } from '../environments/environment'
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [CourtDataResolver],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

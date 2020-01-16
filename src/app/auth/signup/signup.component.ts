@@ -73,7 +73,7 @@ export class SignupComponent implements OnInit {
   myFilter = (d: Date): boolean => {
     const day = d.getDay();
     const year = d.getFullYear();
-    console.log(year)
+    // console.log(year)
 
     // Prevent Saturday and Sunday from being selected.
     // return day !== 0 && day !== 6;
@@ -89,7 +89,7 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.signupForm.valid);
+    // console.log(this.signupForm.valid);
     this.authService.registerUser({
       userName:this.signupForm.value.userName,
       email: this.signupForm.value.email,
@@ -97,8 +97,8 @@ export class SignupComponent implements OnInit {
     })
   }
 
-  goHome(){
-    this.router.navigateByUrl('/')
+  login(){
+    this.router.navigateByUrl('/login')
   }
 
   

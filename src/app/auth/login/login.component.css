@@ -1,3 +1,15 @@
 mat-form-field {
   width: 300px;
 }
+
+button {
+  margin: 10px 5px 10px 5px;
+}
+
+.alert-danger {
+  background-color: #F8D7DB;
+  color: darkred;
+  height: 36px;
+  line-height: 34px;
+  padding: 7px;
+}

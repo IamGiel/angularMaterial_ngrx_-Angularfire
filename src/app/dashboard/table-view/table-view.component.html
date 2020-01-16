@@ -1,0 +1,12 @@
+
+
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+    <div *ngFor="let item of courtDetails[0] ">
+      <p>{{item.name}} : {{item.availability === 'true' ? 'available' : 'not available'}}</p>
+    </div>
+  
+

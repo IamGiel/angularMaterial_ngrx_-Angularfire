@@ -1,29 +1,57 @@
 <div style="margin: 8%;">
-    <section>
-      <form fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px" [formGroup]="loginForm"
-        (ngSubmit)="onSubmit()">
-        <mat-form-field>
-          <input type="email" matInput placeholder="Your email" formControlName="email">
-          <mat-hint>Please enter a valid email.</mat-hint>
-          <mat-error>Invalid or missing email.</mat-error>
-        </mat-form-field>
-        <mat-form-field>
-          <input type="password" matInput placeholder="Your password" formControlName="password">
-          <mat-hint>Please enter your password.</mat-hint>
-          <mat-error>Missing password.</mat-error>
-        </mat-form-field>
-        <br>
-       
-        
+  <section>
+    <form fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px" [formGroup]="loginForm"
+      (ngSubmit)="onSubmit()" style="min-width: 500px;">
+      <mat-form-field>
+        <input type="email" matInput placeholder="Your email" formControlName="email">
+        <mat-hint>Please enter a valid email.</mat-hint>
+        <mat-error>Invalid or missing email.</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input type="password" matInput placeholder="Your password" formControlName="password">
+        <mat-hint>Please enter your password.</mat-hint>
+        <mat-error>Missing password.</mat-error>
+      </mat-form-field>
+      <br>
+
+      <!--         
+        <div class="welcome" fxLayout="column" fxLayout.gt-md="row" fxLayoutGap.gt-md="20px"
+          fxLayoutAlign="center center">
+          <section>
+            <h1>ACTIVITY</h1>
+            <p>Stay active and enjoy better health and more fun!</p>
+          </section>
+          <section>
+            <h1>COMMUNITY</h1>
+            <p>Get to know other people who share your passion!</p>
+          </section>
+          <section>
+            <h1>CHALLENGES</h1>
+            <p>Never stop! Dive into new challenges every day!</p>
+          </section>
+        </div> -->
+
+      <div fxLayout="column" fxLayout.gt-md="row" fxLayoutGap.gt-md="20px" fxLayoutAlign="center center">
+
+        <button mat-raised-button (click)="goHome()"> Home</button>
         <button type="submit" mat-raised-button color="primary" [disabled]="loginForm.invalid">Login</button>
-      </form>
-    </section>
-    <section style="margin-top: 25px;">
-        <span fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px" style="font-size: 10px; color: grey;">
-            <a href="/signup">Register Here</a>
-        </span>
-         <span fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px" style="font-size: 10px; color: grey;">
-           <a href="/">Home</a>
-         </span>
-    </section>
+
+        <p class="alert-danger" *ngIf="loginErrorMessage">{{loginErrorMessage}}</p>
+      </div>
+
+      <mat-list>
+        <!-- <mat-list-item>Item 1</mat-list-item> -->
+        <mat-divider></mat-divider>
+        <mat-list-item>
+          <a [routerLink]="['/signup']" routerLinkActive="router-link-active" style="font-size: 10px ">Dont
+            Have an account? Sign
+            up Here
+          </a>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <!-- <mat-list-item>Item 3</mat-list-item> -->
+      </mat-list>
+
+    </form>
+  </section>
 </div>

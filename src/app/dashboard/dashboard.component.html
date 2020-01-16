@@ -6,7 +6,7 @@
    <button mat-menu-item (click)="onLogout()">Logout</button>
  </mat-menu>
 
-<div fxLayout="row" fxLayout.xs="column" fxFlexFill (window:resize)="onResize($event)" style="justify-content: flex-start;">
+<div fxLayout="row" fxLayout.xs="column" fxFlexFill style="justify-content: flex-start;">
    
     <div
     class="sec1" 
@@ -23,7 +23,7 @@
           <img mat-card-image src={{courts.thumb}} alt="Free Court" style="min-height: 200px; height: 45%; min-width: 35%; width: 250px;">
 
           <mat-card-actions>
-            <button mat-raised-button><span>({{courts.numCourts}})</span> Courts</button>
+            <button mat-raised-button [routerLink]="['table-view', courts.id, 'details']" routerLinkActive="router-link-active"><span>({{courts.numCourts}})</span> Courts</button>
             <button mat-raised-button>SHARE</button>
           </mat-card-actions>
         </mat-card>
