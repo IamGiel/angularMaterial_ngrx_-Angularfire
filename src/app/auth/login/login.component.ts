@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   loginErrorMessage: string;
+  showErrMsg:boolean;
 
   constructor(
     private router: Router,
@@ -40,11 +41,18 @@ export class LoginComponent implements OnInit {
       password: this.loginForm.value.password
     });
     this.authService.getLoginStatus().subscribe(status =>{
-      console.log(status)
-      if (status === 'There is no user record corresponding to this identifier. The user may have been deleted.'){
-        this.loginErrorMessage = 'There is no user record corresponding to the entered credentials.';
-      }
-    });
+      console.log(status)     
+          if (status) {
+            this.loginErrorMessage = status;
+            this.showErrMsg = true; 
+          }
+
+     
+
+        
+       
+     
+    })
   }
 
   

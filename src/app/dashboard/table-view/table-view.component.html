@@ -5,8 +5,46 @@
         The actual rendered columns are set as a property on the row definition" -->
 
   <!-- Position Column -->
-    <div *ngFor="let item of courtDetails[0] ">
-      <p>{{item.name}} : {{item.availability === 'true' ? 'available' : 'not available'}}</p>
-    </div>
+ 
+    <!-- <div *ngFor="let item of courtDetails[0] ">
+      <p>{{item.name}} : {{item.availability == false ? 'available' : 'not available'}}</p>
+    </div> -->
+
+    <br>
+
+    
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+      <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+      <!-- <ng-container matColumnDef="no">
+        <th mat-header-cell *matHeaderCellDef> No. </th>
+        <td mat-cell *matCellDef="let element"> {{element.no}} </td>
+      </ng-container> -->
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+
+      <!-- availability Column -->
+      <ng-container matColumnDef="availability">
+        <th mat-header-cell *matHeaderCellDef> availability </th>
+        <td mat-cell *matCellDef="let element"> {{element.availability}} </td>
+      </ng-container>
+
+     
+      <tr mat-header-row *matHeaderRowDef="displayedColumns_"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns_;"></tr>
+    </table>
+
+    <hr>
+    <br>
+       <p>Last Update: {{dateNow}}</p>
+
+    <button mat-raised-button (click)="backClicked()">Back</button>
+
   
 

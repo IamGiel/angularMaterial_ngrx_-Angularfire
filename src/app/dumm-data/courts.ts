@@ -104,3 +104,5 @@ export const CourtLists = [
            ]
          }
        ];
+
+export const Details = [{ "availability": false, "name": "Court1" }, { "availability": true, "name": "Court2" }, { "availability": false, "name": "court3" }, { "availability": true, "name": "court4" }, { "availability": true, "name": "court5" }, { "availability": true, "name": "court6" }]

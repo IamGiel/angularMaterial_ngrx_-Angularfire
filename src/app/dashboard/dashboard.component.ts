@@ -21,6 +21,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   courtListsSubscription: Subscription;
   isAuth = false;
   authSubscription: Subscription;
+  
 
   constructor(
     private router: Router,
